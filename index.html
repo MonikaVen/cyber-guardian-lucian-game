@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cyber Guardian — Lucian's Adventure</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <div id="world" class="world" aria-live="polite">
+      <div id="ambient" class="ambient" aria-hidden="true"></div>
+      <svg id="networkSvg" class="network-svg" viewBox="0 0 1000 620" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div id="mailLayer" class="mail-layer" aria-hidden="true"></div>
+
+      <header class="topbar glass">
+        <div class="brand">
+          <div class="brand-icon">🐾</div>
+          <div>
+            <div class="brand-title">Cyber Guardian</div>
+            <div id="chapterTitle" class="brand-sub">Chapter 1 — Whispers in the Enchanted Forest</div>
+          </div>
+        </div>
+        <div class="hud">
+          <div class="hud-chip" title="Lives">❤️ <span id="lives">3</span></div>
+          <div class="hud-chip" title="Score">⭐ <span id="score">0</span></div>
+          <div class="hud-chip" title="Progress">🐾 <span id="progressText">1/10</span></div>
+          <button id="settingsBtn" class="icon-btn" aria-label="Accessibility settings">⚙️</button>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <aside class="mission-panel glass">
+          <div class="eyebrow">MISSION</div>
+          <h1 id="missionHeading">Who can Lucian trust?</h1>
+          <p id="missionIntro"></p>
+          <div id="missionSteps" class="mission-steps"></div>
+          <div class="progress-track" aria-label="Chapter progress">
+            <div id="chapterProgress" class="progress-fill"></div>
+          </div>
+        </aside>
+
+        <section id="stage" class="stage" aria-label="Cyber Guardian game scene">
+          <div id="characterLayer" class="character-layer"></div>
+          <div id="interactionLayer" class="interaction-layer"></div>
+          <div id="cardArea" class="card-area"></div>
+          <div id="toast" class="toast" role="status"></div>
+        </section>
+
+        <aside class="team-panel glass">
+          <div class="eyebrow">CYBER TEAM</div>
+          <div id="teamList" class="team-list"></div>
+          <div class="tips-card">
+            <strong>Lucian's rule</strong>
+            <span id="lucianRule">Pause → inspect → decide.</span>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="choice-bar glass" id="choiceBar"></footer>
+    </div>
+
+    <div id="modalBackdrop" class="modal-backdrop hidden"></div>
+    <div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-card glass">
+        <h2 id="settingsTitle">Accessibility</h2>
+        <label><input type="checkbox" id="reducedMotion" /> Reduced motion</label>
+        <label><input type="checkbox" id="noShake" /> No camera shake</label>
+        <label><input type="checkbox" id="emailMotion" checked /> Incoming email animation</label>
+        <button id="closeSettings" class="primary">Close</button>
+      </div>
+    </div>
+
+    <div id="completeModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="completeTitle">
+      <div class="modal-card celebration glass">
+        <div class="spark">✨</div>
+        <h2 id="completeTitle">Cyber Mission Complete</h2>
+        <p id="completeText"></p>
+        <div id="medals" class="medal-row"></div>
+        <div id="scoreboard" class="scoreboard"></div>
+        <button id="nextChapter" class="primary">Next chapter →</button>
+      </div>
+    </div>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
